@@ -1,42 +1,152 @@
-import React from "react";
-import { NavLink } from "react-router-dom";
-import Routing from "./Routing";
+import {
+  CompassIcon,
+  FeatherIcon,
+  HouseIcon,
+  PlusIcon,
+  SearchIcon,
+} from "lucide-react";
 
-const NavBar = () => {
+import NotificationMenu from "../notification-menu";
+import TeamSwitcher from "../team-switcher";
+import UserMenu from "../user-menu";
+import { Button } from "@/components/ui/button";
+import {
+  NavigationMenu,
+  NavigationMenuItem,
+  NavigationMenuLink,
+  NavigationMenuList,
+} from "../ui/navigation-menu";
+import {
+  Popover,
+  PopoverContent,
+  PopoverTrigger,
+} from "@/components/ui/popover";
+import Routing from "./Routing";
+import { useState } from "react";
+
+// const teams = ["Acme Inc.", "coss.com", "Junon"];
+
+// Navigation links array to be used in both desktop and mobile menus
+const navigationLinks = [
+  { href: "/", label: "Home", icon: HouseIcon },
+  { href: "/feed", label: "Feed", icon: CompassIcon },
+  //   { href: "#", label: "Write", icon: FeatherIcon },
+  { href: "#", label: "Search", icon: SearchIcon },
+];
+
+export default function Component() {
   return (
     <>
-      <div className=" w-full h-20 py-2 xcenter fixed">
-        <div className="w-280 h-full rounded-2xl px-3  top-0 flex justify-between items-center border">
-          <div className="flex gap-1">
-            <img
-              className="w-5"
-              src="devCheatsOnlyLogo.svg"
-              alt="devCheatLogo"
-            />
-            <img
-              className="w-20"
-              src="devCheatsTextLogo.svg"
-              alt="devCheatLogo"
-            />
+      <header className="border-b px-4 md:px-6 fixed top-0 w-full">
+        <div className="flex h-16 items-center justify-between gap-4">
+          {/* Left side */}
+          <div className="flex flex-1 items-center gap-2">
+            {/* Mobile menu trigger */}
+            {/* <Popover>
+              <PopoverTrigger asChild>
+                <Button
+                  className="group size-8 md:hidden"
+                  variant="ghost"
+                  size="icon"
+                >
+                  <svg
+                    className="pointer-events-none"
+                    width={16}
+                    height={16}
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M4 12L20 12"
+                      className="origin-center -translate-y-[7px] transition-all duration-300 ease-[cubic-bezier(.5,.85,.25,1.1)] group-aria-expanded:translate-x-0 group-aria-expanded:translate-y-0 group-aria-expanded:rotate-[315deg]"
+                    />
+                    <path
+                      d="M4 12H20"
+                      className="origin-center transition-all duration-300 ease-[cubic-bezier(.5,.85,.25,1.8)] group-aria-expanded:rotate-45"
+                    />
+                    <path
+                      d="M4 12H20"
+                      className="origin-center translate-y-[7px] transition-all duration-300 ease-[cubic-bezier(.5,.85,.25,1.1)] group-aria-expanded:translate-y-0 group-aria-expanded:rotate-[135deg]"
+                    />
+                  </svg>
+                </Button>
+              </PopoverTrigger>
+              <PopoverContent align="start" className="w-48 p-1 md:hidden">
+                <NavigationMenu className="max-w-none *:w-full">
+                  <NavigationMenuList className="flex-col items-start gap-0 md:gap-2">
+                    {navigationLinks.map((link, index) => {
+                      const Icon = link.icon;
+                      return (
+                        <NavigationMenuItem key={index} className="w-full">
+                          <NavigationMenuLink
+                            href={link.href}
+                            className="flex-row items-center gap-2 py-1.5"
+                          >
+                            <Icon
+                              size={16}
+                              className="text-muted-foreground"
+                              aria-hidden="true"
+                            />
+                            <span>{link.label}</span>
+                          </NavigationMenuLink>
+                        </NavigationMenuItem>
+                      );
+                    })}
+                  </NavigationMenuList>
+                </NavigationMenu>
+              </PopoverContent>
+            </Popover> */}
+            {/* <TeamSwitcher teams={teams} defaultTeam={teams[0]} /> */}
+            <span className="flex gap-1">
+              <img className="w-5" src="devCheatsOnlyLogo.svg" alt="" />
+              <img className="w-15" src="devCheatsTextLogo.svg" alt="" />
+            </span>
           </div>
-          <div className="flex gap-2">
-            <NavLink
-              to="/"
-              className={({ isActive }) =>
-                isActive
-                  ? "underline"
-                  : "transition-all ease-in-out "
-              }
+          {/* Middle area */}
+          <NavigationMenu className="max-md:hidden">
+            <NavigationMenuList className="gap-2">
+              {navigationLinks.map((link, index) => {
+                const Icon = link.icon;
+                return (
+                  <NavigationMenuItem key={index}>
+                    <NavigationMenuLink
+                      href={link.href}
+                      className={`flex  border-[#cccccc] size-8 items-center justify-center p-1.5`}
+                      title={link.label}
+                    >
+                      <Icon aria-hidden="true" />
+                      <span className="sr-only">{link.label}</span>
+                    </NavigationMenuLink>
+                  </NavigationMenuItem>
+                );
+              })}
+            </NavigationMenuList>
+          </NavigationMenu>
+          {/* Right side */}
+          <div className="flex flex-1 items-center justify-end gap-4">
+            <Button
+              size="sm"
+              className="text-sm max-sm:aspect-square max-sm:p-0"
             >
-              Home
-            </NavLink>
-            <NavLink to="/feed">Feed</NavLink>
+              <PlusIcon
+                className="opacity-60 sm:-ms-1"
+                size={16}
+                aria-hidden="true"
+              />
+              <span className="max-sm:sr-only">Post</span>
+            </Button>
+            <NotificationMenu />
+            <UserMenu />
           </div>
         </div>
-      </div>
+      </header>
+
       <Routing />
     </>
   );
-};
-
-export default NavBar;
+}
