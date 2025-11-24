@@ -1,6 +1,10 @@
 @import "tailwindcss";
 @import "tw-animate-css";
 
+body{
+  font-size: small;
+}
+
 @custom-variant dark (&:is(.dark *));
 
 .allcenter{
