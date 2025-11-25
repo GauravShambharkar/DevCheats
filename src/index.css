@@ -2,7 +2,9 @@
 @import "tw-animate-css";
 
 body{
-  font-size: small;
+  font-size: x-small;
+  font-family: poppins;
+  background-color: rgb(255, 238, 220);
 }
 
 @custom-variant dark (&:is(.dark *));

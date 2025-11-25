@@ -1,4 +1,4 @@
-import React from "react";
+import BreadCrumb from "../BreadCrumbs/BreadCrumb";
 
 type breadCrumbType = {
   breadCrumb: string;
@@ -7,8 +7,8 @@ type breadCrumbType = {
 const Multer_Cloudinary: React.FC<breadCrumbType> = ({ breadCrumb }) => {
   return (
     <>
-      <div className="">
-        <span>{breadCrumb}</span>
+      <div className="flex py-2 flex-col">
+        <BreadCrumb breadCrumb={breadCrumb} />
         {/* <div>Multer&Cloudinary</div> */}
       </div>
     </>

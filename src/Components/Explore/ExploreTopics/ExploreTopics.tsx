@@ -4,22 +4,28 @@ import ContextAPI from "@/Components/ContextAPI/ContextAPI";
 import Multer_Cloudinary from "@/Components/Multer&Cloudinary/Multer&Cloudinary";
 
 const ExploreTopics = () => {
-  const { lable } = useParams();
+  const { id } = useParams();
 
-  if (lable === "redux") {
-    const breadCrumb: string = `Explore > ${lable}`;
+  if (id) {
+    const breadCrumb: string = `> ${id}`;
     return <Redux breadCrumb={breadCrumb} />;
   }
-  if (lable === "contextApi") {
-    const breadCrumb: string = `Explore > ${lable}`;
+  if (id) {
+    const breadCrumb: string = `> ${id}`;
     return <ContextAPI breadCrumb={breadCrumb} />;
   }
-  if (lable === "multer&cloudinary") {
-    const breadCrumb: string = `Explore > ${lable}`;
+  if (id) {
+    const breadCrumb: string = `> ${id}`;
     return <Multer_Cloudinary breadCrumb={breadCrumb} />;
   }
 
-  return <div>Select a topic</div>;
+  return (
+    <>
+      <div className="flex flex-col py-2">
+        <div>Select a topic</div>
+      </div>
+    </>
+  );
 };
 
 export default ExploreTopics;

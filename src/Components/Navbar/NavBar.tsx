@@ -5,7 +5,7 @@ const NavBar = () => {
   return (
     <>
       <div className="w-full h-20 flex items-center justify-center py-1 fixed">
-        <div className="w-270 rounded-2xl bg-orange-200 shadow-lg flex h-full justify-between items-center border border-[#b0b0b0] px-2">
+        <div className="w-270 rounded-2xl bg-[#ffffff1b] backdrop-blur-xs shadow-lg flex h-full justify-between items-center border border-[#b0b0b0] px-2">
           <span className="flex gap-1">
             <img className="w-5" src="devCheatsOnlyLogo.svg" alt="" />
             <img className="w-20" src="devCheatsTextLogo.svg" alt="" />
@@ -38,9 +38,9 @@ const NavBar = () => {
             </NavLink>
           </div>
 
-          <div className="flex gap-2 ">
-            <NavLink>Login</NavLink>
-            <NavLink>Regiser</NavLink>
+          <div className="flex">
+            <NavLink className="px-3 py-1.5 rounded-lg" >Register</NavLink>
+            <NavLink className="border px-3 py-1.5 rounded-lg text-white bg-amber-600 shadow inset-shadow-sm inset-shadow-orange-200" >Login</NavLink>
           </div>
         </div>
       </div>

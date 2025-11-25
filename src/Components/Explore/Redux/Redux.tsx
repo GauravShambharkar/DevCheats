@@ -1,3 +1,4 @@
+import BreadCrumb from "@/Components/BreadCrumbs/BreadCrumb";
 import React from "react";
 
 type breadCrumbType = {
@@ -7,9 +8,9 @@ type breadCrumbType = {
 const Redux: React.FC<breadCrumbType> = ({ breadCrumb }) => {
   return (
     <>
-      <div className="">
-        <h1>{breadCrumb}</h1>
-        <div>Redux</div>
+      <div className="flex py-2 flex-col">
+        <BreadCrumb breadCrumb={breadCrumb} />
+        {/* <div>Redux</div> */}
       </div>
     </>
   );
