@@ -1,23 +1,24 @@
-import React from "react";
+import React, { Suspense, lazy } from "react";
 import { Route, Routes } from "react-router-dom";
-import Home from "../Home/Home";
-import Explore from "../Explore/Explore";
-import Redux from "../Explore/Redux/Redux";
+
+const Explore = lazy(() => import("../Explore/Explore"));
+const Home = lazy(() => import("../Home/Home"));
 
 const Routing = () => {
   return (
     <>
-      <Routes>
-        <Route path="/" element={<Home />}>
-          home
-        </Route>
-        <Route path="/explore" element={<Explore />}>
-          feed
-        </Route>
-        <Route path="/explore/:id" element={<Explore />}>
-          lable
-        </Route>
-      </Routes>
+      <Suspense fallback={<div className="allcenter">Loading..</div>}>
+        <Routes>
+          {/* Home Route */}
+          <Route path="/" element={<Home />} />
+
+          {/* Explore Main Page */}
+          <Route path="/explore" element={<Explore />} />
+
+          {/* Explore Dynamic Route */}
+          <Route path="/explore/:id" element={<Explore />} />
+        </Routes>
+      </Suspense>
     </>
   );
 };

@@ -4,7 +4,7 @@
 body{
   font-size: x-small;
   font-family: poppins;
-  background-color: rgb(255, 238, 220);
+  background-color: rgb(0, 0, 0);
 }
 
 @custom-variant dark (&:is(.dark *));
