@@ -10,6 +10,12 @@ const SideBarNavProvider = ({ children }: { children: ReactNode }) => {
         { id: "redux", label: "Redux", href: "/explore/redux" },
         { id: "zustand", label: "Zustand", href: "/explore/zustand" },
         { id: "contextapi", label: "Context Api", href: "/explore/contextapi" },
+      ],
+    },
+    {
+      category: "Backend Management",
+      items: [
+        { id: "express", label: "Express", href: "/explore/express" },
         {
           id: "multer&cloudinary",
           label: "Multer & Cloudinary",

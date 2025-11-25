@@ -1,8 +1,12 @@
 import { useParams } from "react-router-dom";
-import Redux from "../Redux/Redux";
-import ContextAPI from "@/Components/ContextAPI/ContextAPI";
-import Multer_Cloudinary from "@/Components/Multer&Cloudinary/Multer&Cloudinary";
-import Zustand from "@/Components/Zustand/Zustand";
+import { Suspense, lazy } from "react";
+import FallbackLoader from "@/Components/Loader/FallbackLoader";
+const Redux = lazy(() => import("../Redux/Redux"));
+const ContextAPI = lazy(() => import("@/Components/ContextAPI/ContextAPI"));
+const Multer_Cloudinary = lazy(
+  () => import("@/Components/Multer&Cloudinary/Multer&Cloudinary")
+);
+const Zustand = lazy(() => import("@/Components/Zustand/Zustand"));
 
 const ExploreTopics = () => {
   const { id } = useParams();
@@ -10,19 +14,35 @@ const ExploreTopics = () => {
   if (id === "redux") {
     const breadCrumb: string = `> Redux`;
 
-    return <Redux breadCrumb={breadCrumb} />;
+    return (
+      <Suspense fallback={<FallbackLoader />}>
+        <Redux breadCrumb={breadCrumb} />
+      </Suspense>
+    );
   }
   if (id === "contextapi") {
     const breadCrumb: string = `> Context API`;
-    return <ContextAPI breadCrumb={breadCrumb} />;
+    return (
+      <Suspense fallback={<FallbackLoader />}>
+        <ContextAPI breadCrumb={breadCrumb} />
+      </Suspense>
+    );
   }
   if (id === "zustand") {
     const breadCrumb: string = `> Zustand`;
-    return <Zustand breadCrumb={breadCrumb} />;
+    return (
+      <Suspense fallback={<FallbackLoader />}>
+        <Zustand breadCrumb={breadCrumb} />{" "}
+      </Suspense>
+    );
   }
   if (id === "multer&cloudinary") {
     const breadCrumb: string = `> Multer & Cloudinary`;
-    return <Multer_Cloudinary breadCrumb={breadCrumb} />;
+    return (
+      <Suspense fallback={<FallbackLoader />}>
+        <Multer_Cloudinary breadCrumb={breadCrumb} />
+      </Suspense>
+    );
   }
 
   return (
