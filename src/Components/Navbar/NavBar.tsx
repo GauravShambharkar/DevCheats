@@ -4,8 +4,8 @@ import { NavLink } from "react-router-dom";
 const NavBar = () => {
   return (
     <>
-      <div className="w-full h-20 flex items-center justify-center py-1">
-        <div className="w-270 rounded-2xl bg-orange-200 shadow-lg flex h-full justify-between items-center border px-2">
+      <div className="w-full h-20 flex items-center justify-center py-1 fixed">
+        <div className="w-270 rounded-2xl bg-orange-200 shadow-lg flex h-full justify-between items-center border border-[#b0b0b0] px-2">
           <span className="flex gap-1">
             <img className="w-5" src="devCheatsOnlyLogo.svg" alt="" />
             <img className="w-20" src="devCheatsTextLogo.svg" alt="" />
