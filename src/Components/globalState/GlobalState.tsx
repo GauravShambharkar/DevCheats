@@ -7,19 +7,19 @@ const SideBarNavProvider = ({ children }: { children: ReactNode }) => {
     {
       category: "State Management",
       items: [
-        { id: "redux", label: "Redux", href: "/explore/redux" },
-        { id: "zustand", label: "Zustand", href: "/explore/zustand" },
-        { id: "contextapi", label: "Context Api", href: "/explore/contextapi" },
+        { id: "redux", label: "Redux", href: "/explore/stateManagement/redux" },
+        { id: "zustand", label: "Zustand", href: "/explore/stateManagement/zustand" },
+        { id: "contextapi", label: "Context Api", href: "/explore/stateManagement/contextapi" },
       ],
     },
     {
       category: "Backend Management",
       items: [
-        { id: "express", label: "Express", href: "/explore/express" },
+        { id: "express", label: "Express", href: "/explore/backendmanagement/express" },
         {
           id: "multer&cloudinary",
           label: "Multer & Cloudinary",
-          href: "/explore/multer&cloudinary",
+          href: "/explore/backendmanagement/multer&cloudinary",
         },
       ],
     },

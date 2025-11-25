@@ -12,7 +12,7 @@ const BreadCrumb: React.FC<breadCrumbType> = ({ breadCrumb }) => {
           href="/explore"
           className="hover:underline transition-all ease-in-out"
         >
-          Explore{" "}
+          Explore{" "} 
         </a>
         {breadCrumb}
       </span>

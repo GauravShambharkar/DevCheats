@@ -16,7 +16,8 @@ const Routing = () => {
           <Route path="/explore" element={<Explore />} />
 
           {/* Explore Dynamic Route */}
-          <Route path="/explore/:id" element={<Explore />} />
+          {/* <Route path="/explore/:id" element={<Explore />} /> */}
+          <Route path="/explore/:category/:id" element={<Explore />} />
         </Routes>
       </Suspense>
     </>
