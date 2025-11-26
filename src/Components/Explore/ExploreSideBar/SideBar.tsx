@@ -13,7 +13,7 @@ const SideBar = () => {
   };
 
   return (
-    <div className="border w-50 h-full bg-orange-200 flex flex-col gap-3 px-3 py-3 rounded-lg border-gray-400">
+    <div className="min-w-50 h-full bg-orange-200 flex flex-col gap-3 px-3 py-3 rounded-lg border-gray-400">
       <h2 className="font-semibold text-lg">Explore Learning</h2>
 
       <div className="flex flex-col">
