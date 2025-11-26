@@ -26,11 +26,11 @@ const Redux: React.FC<breadCrumbType> = ({ breadCrumb }) => {
           <TreeStructure
             rootFolder="frontend"
             files={[
-              "src/App.jsx",
-              "src/main.jsx",
-              "src/reducers/index.js",
-              "src/store/store.js",
-              "src/components/Navbar.jsx",
+              "src/App.tsx",
+              "src/main.tsx",
+              "src/reducers/Reducer.tsx",
+              "src/store/store.tsx",
+              "src/components/Navbar.tsx",
             ]}
           />
         </div>

@@ -72,10 +72,7 @@ const Node: React.FC<NodeProps> = ({ name, node }) => {
   );
 };
 
-const TreeStructure: React.FC<TreeStructureProps> = ({
-  rootFolder,
-  files,
-}) => {
+const TreeStructure: React.FC<TreeStructureProps> = ({ rootFolder, files }) => {
   const tree = {
     [rootFolder]: buildTree(files),
   };
