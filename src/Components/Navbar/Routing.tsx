@@ -1,5 +1,6 @@
 import React, { Suspense, lazy } from "react";
 import { Route, Routes } from "react-router-dom";
+import FallbackLoader from "../Loader/FallbackLoader";
 
 const Explore = lazy(() => import("../Explore/Explore"));
 const Home = lazy(() => import("../Home/Home"));
@@ -7,7 +8,7 @@ const Home = lazy(() => import("../Home/Home"));
 const Routing = () => {
   return (
     <>
-      <Suspense fallback={<div className="allcenter text-white w-full h-screen">Loading..</div>}>
+      <Suspense fallback={<FallbackLoader />}>
         <Routes>
           {/* Home Route */}
           <Route path="/" element={<Home />} />

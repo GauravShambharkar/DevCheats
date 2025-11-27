@@ -1,50 +1,78 @@
-import { useContext, useState } from "react";
+import { useContext, useMemo, useState } from "react";
 import { NavLink } from "react-router-dom";
+import { ChevronDown } from "lucide-react";
 import { SideBarNavigationContext } from "@/Components/globalState/GlobalState";
 
 const SideBar = () => {
-  const sideBarNavigation = useContext(SideBarNavigationContext);
-
-  // Track which accordion is open
+  const sideBarNavigation = useContext(SideBarNavigationContext) || [];
   const [openIndex, setOpenIndex] = useState<number | null>(0);
+  const [filter, setFilter] = useState("");
+
+  const filteredNavigation = useMemo(() => {
+    const term = filter.toLowerCase();
+    if (!term) return sideBarNavigation;
+
+    return sideBarNavigation
+      .map((group: any) => ({
+        ...group,
+        items: group.items.filter((item: any) =>
+          item.label.toLowerCase().includes(term)
+        ),
+      }))
+      .filter((group: any) => group.items.length > 0);
+  }, [filter, sideBarNavigation]);
 
   const toggleAccordion = (index: number) => {
     setOpenIndex(openIndex === index ? null : index);
   };
 
   return (
-    <div className="min-w-50 h-full bg-orange-200 flex flex-col gap-3 px-3 py-3 rounded-lg border-gray-400">
-      <h2 className="font-semibold text-lg">Explore Learning</h2>
+    <div className="flex flex-col gap-4">
+      <div className="space-y-1">
+        <h2 className="text-sm font-semibold text-white">Browse topics</h2>
+        <p className="text-xs text-white/70">
+          Pick a path to update the guide canvas.
+        </p>
+      </div>
 
-      <div className="flex flex-col">
-        {sideBarNavigation.map((group: any, index: number) => (
-          <div key={index} className="flex flex-col gap-1">
-            {/* Accordion Header */}
+      <div className="rounded-2xl border border-white/10 bg-white/10 px-3 py-2 text-sm text-white">
+        <input
+          value={filter}
+          onChange={(event) => setFilter(event.target.value)}
+          placeholder="Search topic…"
+          className="w-full bg-transparent text-sm text-white placeholder:text-white/60 focus:outline-none"
+        />
+      </div>
+
+      <div className="flex flex-col gap-2">
+        {filteredNavigation.map((group: any, index: number) => (
+          <div key={group.category} className="rounded-2xl border border-white/10 bg-white/5">
             <button
               onClick={() => toggleAccordion(index)}
-              className="text-xs text-gray-700 cursor-pointer flex justify-between items-center py-1"
+              className="flex w-full items-center justify-between px-3 py-2 text-left text-sm font-semibold text-white"
             >
               {group.category}
-              <span className="text-sm">{openIndex === index ? "▾" : "▸"}</span>
+              <ChevronDown
+                size={16}
+                className={`transition-transform ${
+                  openIndex === index ? "rotate-180" : ""
+                }`}
+              />
             </button>
-
-            {/* Accordion Content */}
             {openIndex === index && (
-              <div
-                className={`overflow-hidden transition-all ease-out duration-100 `}
-              >
-                <div className="flex flex-col gap-1 mt-1">
+              <div className="border-t border-white/10 px-2 py-2 text-sm">
+                <div className="flex flex-col gap-1.5">
                   {group.items.map((item: any) => (
                     <NavLink
                       key={item.id}
                       to={item.href}
                       className={({ isActive }) =>
-                        `ycenter rounded-lg transition-all ease-in-out 
-                    ${
-                      isActive
-                        ? "px-3 py-2 text-white border border-white bg-amber-600 shadow inset-shadow-sm inset-shadow-orange-200"
-                        : "px-3 py-2 hover:bg-orange-300 border-transparent hover:inset-shadow-orange-500 hover:inset-shadow-sm"
-                    }`
+                        [
+                          "rounded-xl px-3 py-2 text-sm transition",
+                          isActive
+                            ? "bg-amber-400 text-slate-900 font-semibold shadow-inner shadow-amber-700/40"
+                            : "text-white/80 hover:bg-white/10",
+                        ].join(" ")
                       }
                     >
                       {item.label}
@@ -55,6 +83,12 @@ const SideBar = () => {
             )}
           </div>
         ))}
+
+        {filteredNavigation.length === 0 && (
+          <div className="rounded-2xl border border-white/10 bg-white/5 p-3 text-xs text-white/60">
+            No topics match “{filter}”.
+          </div>
+        )}
       </div>
     </div>
   );
