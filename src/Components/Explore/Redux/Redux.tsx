@@ -22,9 +22,9 @@ const Redux: React.FC<breadCrumbType> = ({ breadCrumb }) => {
       <div className="flex py-2 flex-col gap-2 w-full h-full">
         <BreadCrumb breadCrumb={breadCrumb} />
         {/* <div>Redux</div> */}
-        <div autoFocus className=" w-fit">
+        <div autoFocus className="w-fit">
           <TreeStructure
-            rootFolder="frontend"
+            rootFolder="Frontend"
             files={[
               "src/App.tsx",
               "src/main.tsx",

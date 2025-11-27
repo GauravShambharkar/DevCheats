@@ -44,7 +44,7 @@ const Node: React.FC<NodeProps> = ({ name, node }) => {
   const [open, setOpen] = useState(false);
 
   return (
-    <div className="ml-4">
+    <div className="ml-1.5">
       <div
         className="flex items-center gap-1 cursor-pointer select-none"
         onClick={() => !isFile && setOpen(!open)}
