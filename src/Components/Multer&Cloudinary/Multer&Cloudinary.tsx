@@ -152,7 +152,7 @@ const multerSteps: GuideStep[] = [
 
 const Multer_Cloudinary: React.FC<breadCrumbType> = ({ breadCrumb }) => {
   return (
-    <div className="flex h-full w-full flex-col gap-4 py-2 overflow-auto">
+    <div className="flex h-full w-full flex-col gap-4 overflow-y-auto px-2 py-2 sm:px-0">
       <BreadCrumb breadCrumb={breadCrumb} />
       <p className="text-sm text-slate-600">
         Combine Multer + Cloudinary to give users instant media uploads without
@@ -163,22 +163,27 @@ const Multer_Cloudinary: React.FC<breadCrumbType> = ({ breadCrumb }) => {
         {multerSteps.map((step, index) => (
           <section
             key={step.title}
-            className="rounded-2xl border border-sky-200 bg-white p-4 shadow-sm"
+            className="rounded-2xl border border-sky-200 bg-white p-3 shadow-sm sm:p-4"
           >
             <div className="mb-3 flex flex-col gap-1">
               <span className="text-xs font-semibold uppercase tracking-wide text-sky-500">
                 Step {index + 1}
               </span>
+
               <h3 className="text-lg font-semibold text-slate-900">
                 {step.title}
               </h3>
+
               <p className="text-sm text-slate-600">{step.description}</p>
             </div>
-            <CodeBlock
-              code={step.code}
-              fileName={step.fileName}
-              language={step.language}
-            />
+
+            <div className="w-full whitespace-pre-wrap rounded-xl">
+              <CodeBlock
+                code={step.code}
+                fileName={step.fileName}
+                language={step.language}
+              />
+            </div>
           </section>
         ))}
       </div>

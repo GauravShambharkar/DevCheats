@@ -27,7 +27,7 @@ const SideBar = () => {
   };
 
   return (
-    <div className="flex flex-col gap-4">
+    <div className="flex flex-col gap-4 ">
       <div className="space-y-1">
         <h2 className="text-sm font-semibold text-white">Browse topics</h2>
         <p className="text-xs text-white/70">
@@ -46,7 +46,10 @@ const SideBar = () => {
 
       <div className="flex flex-col gap-2">
         {filteredNavigation.map((group: any, index: number) => (
-          <div key={group.category} className="rounded-2xl border border-white/10 bg-white/5">
+          <div
+            key={group.category}
+            className="rounded-2xl border border-white/10 bg-white/5"
+          >
             <button
               onClick={() => toggleAccordion(index)}
               className="flex w-full items-center justify-between px-3 py-2 text-left text-sm font-semibold text-white"

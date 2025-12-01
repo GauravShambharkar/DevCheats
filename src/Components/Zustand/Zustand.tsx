@@ -105,14 +105,17 @@ const zustandSteps: GuideStep[] = [
 
 const Zustand: React.FC<breadCrumbType> = ({ breadCrumb }) => {
   return (
-    <div className="flex h-full w-full flex-col gap-4 py-2 overflow-auto">
+    <div className="flex h-full w-full flex-col gap-4 overflow-auto px-2 py-2 sm:px-0">
       <BreadCrumb breadCrumb={breadCrumb} />
       <p className="text-sm text-slate-600">
         Zustand keeps global state ergonomic by exposing a store as a simple
         hook. No providers, minimal boilerplate, and full TypeScript support.
       </p>
 
-      <div className="w-fit" aria-label="Suggested folder structure">
+      <div
+        className="w-full overflow-x-auto"
+        aria-label="Suggested folder structure"
+      >
         <TreeStructure
           rootFolder="src"
           files={[
@@ -127,7 +130,7 @@ const Zustand: React.FC<breadCrumbType> = ({ breadCrumb }) => {
         {zustandSteps.map((step, index) => (
           <section
             key={step.title}
-            className="rounded-2xl border border-emerald-200 bg-white p-4 shadow-sm"
+            className="rounded-2xl border border-emerald-200 bg-white p-3 shadow-sm sm:p-4"
           >
             <div className="mb-3 flex flex-col gap-1">
               <span className="text-xs font-semibold uppercase tracking-wide text-emerald-500">

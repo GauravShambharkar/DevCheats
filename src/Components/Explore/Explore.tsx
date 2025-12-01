@@ -41,7 +41,7 @@ const Explore = () => {
 
   return (
     <div className="w-full h-full overflow-y-auto bg-slate-950 text-white">
-      <div className="mx-auto flex w-full max-w-7xl min-h-screen flex-col gap-8 px-6 pb-16 pt-28">
+      <div className="mx-auto flex w-full max-w-7xl min-h-screen flex-col gap-8 px-4 pb-16 pt-24 sm:px-6 md:pt-28">
         <header className="rounded-3xl border border-white/10 bg-gradient-to-br from-slate-900 via-slate-900/70 to-slate-900/40 p-8 shadow-2xl shadow-black/40">
           <div className="flex flex-col gap-4">
             <span className="w-fit rounded-full border border-white/15 px-4 py-1 text-xs font-semibold uppercase tracking-[0.3em] text-amber-300">
@@ -72,7 +72,7 @@ const Explore = () => {
           </div>
         </header>
 
-        <section className="grid gap-4 md:grid-cols-3">
+        <section className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
           {stats.map((stat) => (
             <div
               key={stat.label}

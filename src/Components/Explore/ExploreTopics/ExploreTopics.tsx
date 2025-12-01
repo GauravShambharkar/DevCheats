@@ -64,47 +64,51 @@ const ExploreTopics = () => {
       title: "Zustand",
       img: "https://tse1.mm.bing.net/th/id/OIP.BV_3VVtA8aRzModThtq6dQHaD3?rs=1&pid=ImgDetMain&o=7&rm=3",
       description: "Zustand is an state Management library for React to hadnle",
-      to: "stateManagement/zustand"
+      to: "stateManagement/zustand",
     },
     {
       title: "Context API",
       img: "https://tse2.mm.bing.net/th/id/OIP.8iSkAgJE8YCjIQCYFPVo7QHaD-?rs=1&pid=ImgDetMain&o=7&rm=3",
       description:
         "ZContext API is an state Management library for React to hadnle",
-        to: "stateManagement/contextapi"
+      to: "stateManagement/contextapi",
     },
   ];
   const navigate = useNavigate();
 
   return (
     <>
-      <div className="w-full h-full flex flex-col gap-4 py-2 border border-gray-300 p-2 rounded-lg ">
-        <div className="w-full xcenter">
-          <h1 className="text-3xl tracking-tighter">Select your Topic</h1>
+      <div className="flex h-full w-full flex-col gap-4 rounded-2xl border border-gray-200/70 p-3 py-4 sm:p-4">
+        <div className="w-full text-center">
+          <h1 className="text-2xl font-semibold tracking-tight text-slate-900 sm:text-3xl">
+            Select your Topic
+          </h1>
         </div>
 
         {/* Topic cards */}
-        <div className="w-full">
-          <div className="grid grid-cols-[1fr_1fr_1fr] gap-4">
+        <div className="w-full ">
+          <div className="grid gap-4 sm:grid-cols-2 xl:grid-cols-3">
             {Topic_Cards.map((item, id) => (
               <div
                 key={id}
                 onClick={() => {
                   navigate(`${item.to}`);
                 }}
-                className="border border-gray-300 cursor-pointer rounded-xl p-3 flex flex-col gap-3 hover:shadow-md transition"
+                className="flex cursor-pointer flex-col gap-3 rounded-2xl border border-gray-200 bg-white p-3 transition hover:-translate-y-0.5 hover:shadow-lg"
               >
-                <div className="w-full overflow-hidden rounded-lg">
+                <div className="w-full overflow-hidden rounded-xl">
                   <img
                     src={item.img}
                     alt={item.title}
-                    className="object-cover w-full h-40"
+                    className="h-44 w-full object-cover"
                   />
                 </div>
 
                 <div className="flex flex-col">
-                  <h1 className="font-semibold text-lg">{item.title}</h1>
-                  <p className="text-sm text-gray-400">{item.description}</p>
+                  <h1 className="text-lg font-semibold text-slate-900">
+                    {item.title}
+                  </h1>
+                  <p className="text-sm text-gray-500">{item.description}</p>
                 </div>
               </div>
             ))}

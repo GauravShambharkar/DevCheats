@@ -135,7 +135,7 @@ const reduxSteps: GuideStep[] = [
 
 const Redux: React.FC<breadCrumbType> = ({ breadCrumb }) => {
   return (
-    <div className="flex h-full w-full flex-col gap-4 overflow-y-auto py-2">
+    <div className="flex h-full w-full flex-col gap-4 overflow-y-auto px-2 py-2 sm:px-0">
       <BreadCrumb breadCrumb={breadCrumb} />
       <p className="text-sm text-slate-600">
         Redux Toolkit shines when an app grows past simple local state. Follow
@@ -143,7 +143,7 @@ const Redux: React.FC<breadCrumbType> = ({ breadCrumb }) => {
         time-travel friendly global store.
       </p>
 
-      <div className="w-fit" aria-label="Suggested folder structure">
+      <div className="w-full overflow-x-auto" aria-label="Suggested folder structure">
         <TreeStructure
           rootFolder="src"
           files={[
@@ -160,7 +160,7 @@ const Redux: React.FC<breadCrumbType> = ({ breadCrumb }) => {
         {reduxSteps.map((step, index) => (
           <section
             key={step.title}
-            className="rounded-2xl border border-amber-200 bg-white p-4 shadow-sm"
+            className="rounded-2xl border border-amber-200 bg-white p-3 shadow-sm sm:p-4"
           >
             <div className="mb-3 flex flex-col gap-1">
               <span className="text-xs font-semibold uppercase tracking-wide text-amber-500">
