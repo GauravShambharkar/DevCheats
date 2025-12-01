@@ -1,4 +1,3 @@
-import React from "react";
 import NavBar from "./Components/Navbar/NavBar";
 import Routing from "./Components/Navbar/Routing";
 import Footer from "./Components/Footer/Footer";
