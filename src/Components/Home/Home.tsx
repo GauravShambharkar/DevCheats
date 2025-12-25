@@ -71,10 +71,10 @@ const Home = () => {
       <div className="mx-auto flex w-full max-w-6xl flex-col gap-16 px-4 py-20 sm:px-6 md:py-28">
 
         {/* Hero */}
-        <section className="border gap-10 flex max-[1050px]:flex-col">
+        <section className=" gap-10 flex max-[1050px]:flex-col">
           <div className="flex flex-col gap-6 text-center lg:text-left px-2 sm:px-0">
 
-            <span className="mx-auto w-fit rounded-full border border-white/20 px-4 py-1 text-xs font-semibold uppercase tracking-[0.2em] text-amber-300 lg:mx-0 max-[500px]:text-[10px] max-[500px]:px-3">
+            <span className="mx-auto w-fit rounded-full  border-white/20 px-4 py-1 text-xs font-semibold uppercase tracking-[0.2em] text-amber-300 lg:mx-0 max-[500px]:text-[10px] max-[500px]:px-3">
               Dev Cheats
             </span>
 
@@ -111,7 +111,7 @@ const Home = () => {
             </div>
           </div>
 
-          <div className="rounded-3xl border border-white max-[500]:w-100 bg-gradient-to-br from-slate-900 to-slate-800 p-5 max-[350px]:p-2 max-[350px]:text-[11px]">
+          <div className="rounded-3xl  max-[500]:w-100 bg-gradient-to-br from-slate-900 to-slate-800 p-5 max-[350px]:p-2 max-[350px]:text-[11px]">
             <p className="text-xs uppercase tracking-[0.3em] text-slate-400 max-[500px]:text-[10px]">Quick peek</p>
             <h3 className="mt-2 text-xl max-[500px]:text-lg font-semibold text-white">Bootstrap Redux Provider</h3>
             <p className="text-sm text-slate-400 max-[500px]:text-xs">
